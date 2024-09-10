@@ -1,0 +1,182 @@
+/* Define o estilo do título principal */
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+/* Configura o estilo do corpo da página */
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #cfcfcf;
+    min-height: 105vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Cria uma linha divisória e a estiliza */
+hr {
+    border: none;
+    height: 6px;
+    width: 99%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.815), grey);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Define o estilo dos botões */
+button {
+    font-size: 1.3rem;
+    text-decoration: none;
+    background-color: black;
+    border-radius: 1.5rem;
+    border: none;
+    cursor: pointer;
+    margin: 1.5rem 3rem;
+    padding: 1.3rem 1.9rem;
+}
+
+/* Define o estilo do botão ao ser selecionado */
+button:hover {
+    background-color: gray;
+    transition:  background-color 0.3s ease-in-out;
+}
+
+/* Define o estilo dos links dos botões */
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Crie e estiliza uma divisão com o contéudo dos textos da página lerNoticia */
+div {
+    border: none;
+    font-size: 2rem;
+    padding: 2rem 7rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* Configura o estilo do rodapé */
+footer {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 50%;
+}
+
+/* Estiliza o contêiner com os botões */
+.conteiner-botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Crie e estiliza o contêiner com a notícia principal */
+.destaque {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Alinha a imagem da notícia destaque */
+.destaque figure {
+    text-align: center;
+}
+
+/* Estiliza a imagem da notícia destaque */
+.destaque img {
+    width: 100%;
+    max-width: 800px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.562);
+}
+
+/* Estiliza a descrição da imagem da notícia destaque */
+.destaque figcaption {
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+/* Estiliza os links */
+.link-noticia, ul a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: rgb(2, 44, 160)
+}
+
+/* Estiliza os links quando selecionados */
+.link-noticia:hover, ul a:hover {
+   color: rgb(133, 1, 133);
+}
+
+/* Alinha o texto da notícia destaque no contêiner */
+.texto-destaque {
+    flex: 1;
+    align-self: flex-start;
+}
+
+/* Formata o título da notícia destaque */
+.texto-destaque h2 {
+    font-size: 3.9rem;
+}
+
+/* Estiliza o texto da notícia destaque */
+.texto-destaque p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Estiliza o contêiner das demais notícias */
+.demais-noticias {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estiliza o título da seção das demais notícias */
+.demais-noticias h3 {
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+/* Estila a lista não ordenada de links */
+.demais-noticias li {
+    padding: 10px;
+}
+
+/* Cria e estiliza o contêiner com a imagem na página lerNoticia */
+.imagem-noticia {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+/* Alinha a imagem da página lerNoticia ao centro */
+.imagem-noticia figure {
+    text-align: center;
+}
+
+/* Estiliza a imagem na página lerNoticia */
+.imagem-noticia img {
+    width: 100%;
+    max-width: 100rem;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.562);
+}
+
+/* Estiliza a descrição da imagem na página lerNoticia */
+.imagem-noticia figcaption {
+    font-size: 1.3rem;
+    margin-top: 0.4rem;
+}
