@@ -1,16 +1,24 @@
-/* Define o estilo do título principal */
+/* Define o estilo dos títulos */
 h1 {
     font-size: 3rem;
     text-align: center;
 }
 
+h2 {
+    font-size: 1.9rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 /* Configura o estilo do corpo da página */
 body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #cfcfcf;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    min-height: 100dvh;
     margin: 0;
     padding: 20px;
 }
@@ -48,24 +56,14 @@ button a {
     color: white;
 }
 
-/* Crie e estiliza uma divisão com o contéudo dos textos da página lerNoticia */
-div {
-    border: none;
-    font-size: 1.5rem;
-    padding: 2rem 7rem;
-    line-height: 1.3;
-    text-align: justify;
-}
-
 /* Configura o estilo do rodapé */
 footer {
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-align: center;
     background-color: black;
     color: white;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
+    padding: 5px;
     width: 100%;
     opacity: 50%;
 }
@@ -78,31 +76,36 @@ footer {
     gap: 2rem;
 }
 
-/* Crie e estiliza o contêiner com a notícia principal */
+/* Estiliza o contêiner com a notícia principal */
 .destaque {
+    padding: 15px;
+}
+
+/* Alinha os itens da notícia utilizando flexbox */
+.fileira {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    margin-left: 2rem;
-    margin-bottom: 2rem;
 }
 
-/* Alinha a imagem da notícia destaque */
-.destaque figure {
-    text-align: center;
+/* Estiliza o título da notícia destaque */
+.titulo-Destaque {
+    text-align:center;
+	width: 100%;
 }
 
-/* Estiliza a imagem da notícia destaque */
-.destaque img {
+/* Defina a porcentagem de espaço que o contêiner vai ocupar */
+.img-Destaque {
+    width: 40%;
+}
+
+/* Define a porcentagem de espaço que a imagem vai ocupar no contêiner */
+.img-Destaque img {
     width: 100%;
-    max-width: 800px;
-    object-fit: cover;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.562);
 }
 
 /* Estiliza a descrição da imagem da notícia destaque */
-.destaque figcaption {
+.img-Destaque figcaption {
+    text-align: center;
     font-size: 1rem;
     margin-top: 0.2rem;
 }
@@ -122,36 +125,33 @@ footer {
 
 /* Alinha o texto da notícia destaque no contêiner */
 .texto-destaque {
-    flex: 1;
-    align-self: flex-start;
-}
-
-/* Formata o título da notícia destaque */
-.texto-destaque h2 {
-    font-size: 2.5rem;
+    width: 55%;
+    padding: 10px;
+    margin-top: 1rem;
 }
 
 /* Estiliza o texto da notícia destaque */
 .texto-destaque p {
+    text-align: justify;
     font-size: 1.3rem;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 /* Estiliza o contêiner das demais notícias */
 .demais-noticias {
-    display: flex;
+    padding: 15px;
+}
+
+.itens-demais-noticias {
+    width: 90%;
+    justify-content: space-between;
     flex-direction: column;
 }
 
-/* Estiliza o título da seção das demais notícias */
-.demais-noticias h3 {
-    font-size: 1.8rem;
-    margin-left: 2rem;
-}
-
-/* Estila a lista não ordenada de links */
-.demais-noticias li {
-    padding: 8px;
+/* Estiliza as imagens das demais notícias*/
+.itens-demais-noticias img{
+    width: 80%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.562);
 }
 
 /* Cria e estiliza o contêiner com a imagem na página lerNoticia */
@@ -179,4 +179,13 @@ footer {
 .imagem-noticia figcaption {
     font-size: 1rem;
     margin-top: 0.3rem;
+}
+
+/* Crie e estiliza uma divisão com o contéudo dos textos da página lerNoticia */
+.textoLerNoticia {
+    border: none;
+    font-size: 1.5rem;
+    padding: 2rem 7rem;
+    line-height: 1.3;
+    text-align: justify;
 }
