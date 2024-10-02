@@ -1,0 +1,6 @@
+print('=' * 50)
+print('  Bem-vindo!')
+valor = float(input('\n - Insira um valor: '))
+valorReal = str('%.2f' % valor).replace('.', ',')
+print(' * O valor formatado em reais é R$ %s!' % valorReal)
+print('=' * 50)

@@ -1,0 +1,8 @@
+print('          «--- PREÇO DO TERRENO ---»')
+comprimento = float(input('\n - Informe o comprimento do terreno em metros -> '))
+largura = float(input(' - Informe a largura do terreno em metros -> '))
+m2 = (comprimento * largura)
+print('\n' + '=' * 50)
+print(' PREÇO DO M² DE CONSTRUÇÃO : R$850,00')
+print(f' O valor da construção será de R${m2 * 850:.2f}!')
+print('=' * 50)

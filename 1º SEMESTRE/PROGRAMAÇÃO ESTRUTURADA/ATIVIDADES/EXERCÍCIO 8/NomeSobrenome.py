@@ -1,0 +1,6 @@
+print('=' * 50)
+nome = input(' * Informe seu nome -> ') 
+sobrenome = input(' * Informe seu sobrenome -> ')
+qtd = int(input(' * Quantas vezes deseja imprimir o conjunto? -> '))
+print(('\n' + ' - ' + nome + ' ' + sobrenome) * qtd)
+print('=' * 50)

@@ -1,0 +1,119 @@
+CREATE TABLE Cliente (
+codigo_cliente SERIAL PRIMARY KEY,
+nome_cliente VARCHAR(30) NOT NULL,
+cpf_cliente CHAR(11) NOT NULL,
+celular_cliente VARCHAR(15)
+);
+
+
+CREATE TABLE Produto (
+codigo_produto SERIAL PRIMARY KEY,
+descricao_produto VARCHAR(40) NOT NULL,
+preco_produto NUMERIC(6,2),
+estoque_produto INTEGER DEFAULT '0',
+tipo_produto VARCHAR(15)
+);
+
+
+CREATE TABLE Venda (
+codigo_venda SERIAL PRIMARY KEY,
+data_venda DATE,
+hora_venda TIME,
+codigo_cliente SERIAL,
+FOREIGN KEY (codigo_cliente) REFERENCES Cliente (codigo_cliente)
+);
+
+
+CREATE TABLE ProdutosVenda (
+id_prodvenda SERIAL PRIMARY KEY,
+quantidade_vendida INTEGER,
+valor_total NUMERIC (7,2),
+codigo_venda SERIAL,
+codigo_produto SERIAL,
+FOREIGN KEY (codigo_venda) references Venda (codigo_venda),
+FOREIGN KEY (codigo_produto) references Produto (codigo_produto)
+);
+
+
+INSERT INTO Cliente
+(nome_cliente, cpf_cliente, celular_cliente)
+VALUES
+('Gabriel', '11122233344', '37999900000'),
+('João', '11122233355', '37999777777'),
+('Carlos', '22233344455', '37999911111'),
+('Matheus', '11133355566', '37999222222'),
+('Sabrina', '33344455566', '37999333333'),
+('Paula', '55511122233', '37999944444')
+
+
+UPDATE Cliente
+SET celular_cliente = 37999998888
+WHERE codigo_cliente = 1
+
+
+SELECT nome_cliente
+FROM Cliente
+ORDER BY nome_cliente ASC
+
+
+INSERT INTO Produto
+(descricao_produto, preco_produto,estoque_produto, tipo_produto)
+VALUES
+('Suco', 8.50, 254, 'Bebida'),
+('Bolacha', 4.20, 505, 'Alimento'),
+('Vinho', 60.45, 49, 'Bebida'),
+('Cereal', 18.80, 35, 'Alimento'),
+('Bolo', 15, 78, 'Alimento'),
+('Cerveja', 2.79, 700, 'Bebida')
+
+
+UPDATE Produto
+SET preco_produto = preco_produto * 1.1
+WHERE codigo_produto = 2
+OR
+codigo_produto = 4
+OR
+codigo_produto = 6
+
+
+UPDATE Produto
+SET preco_produto = preco_produto - (preco_produto * 0.1)
+WHERE codigo_produto = 1
+OR
+codigo_produto = 3
+OR
+codigo_produto = 5
+
+
+SELECT descricao_produto
+FROM Produto
+WHERE estoque_produto > 50 OR preco_produto < 100
+
+
+INSERT INTO Venda
+(data_venda, hora_venda, codigo_cliente)
+VALUES
+('2024-09-01', '14:05:10', 2)
+
+
+INSERT INTO ProdutosVenda
+(codigo_venda, codigo_produto, quantidade_vendida, valor_total)
+VALUES
+(1, 1, 5, (7.65 * 5)),
+(1, 4, 4, (20.68 * 4))
+
+
+UPDATE Produto
+SET estoque_produto = (estoque_produto - 5)
+WHERE codigo_produto = 1
+
+
+UPDATE Produto
+SET estoque_produto = (estoque_produto - 4)
+WHERE codigo_produto = 4
+
+
+INSERT INTO Produto
+(descricao_produto, estoque_produto, tipo_produto)
+VALUES
+('Farinha de trigo', 500, 'Alimento')

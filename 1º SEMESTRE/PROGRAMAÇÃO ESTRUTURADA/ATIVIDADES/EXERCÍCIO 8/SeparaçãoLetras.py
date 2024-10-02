@@ -1,0 +1,7 @@
+print('=' * 50)
+print(' Olá!')
+palavra = input('\n - Digite uma palavra: ')
+letra = int(input(' - Informe quantas letras deseja separar: '))
+print('\n - 1º Parte: ', palavra[:letra])
+print(' - 2º Parte: ', palavra[-letra:])
+print('=' * 50)
