@@ -1,7 +1,9 @@
 public class Utilitario {
     
+    /* Define a variável ano como estática */
     public static int ano = 2024;
 
+    /* Cria o método que retorna se o número é par */
     public static boolean ePar(int num){
         if (num % 2 == 0) {
             return true;
@@ -11,10 +13,12 @@ public class Utilitario {
         }
     }
 
+    /* Cria o método que retorna se o número é ímpar */
     public static boolean eImpar(int num){
         return !ePar(num);
     }
 
+    /* Cria o método que retorna se o número é primo */
     public static boolean ePrimo(int num) {
         int cont = 0;
         boolean resposta = true;
