@@ -1,0 +1,132 @@
+-- ATV 01 --
+use clinica;
+
+db.createCollection('Cliente');
+
+db.createCollection('Medico');
+
+db.createCollection('Consulta');
+
+
+-- ATV 02 --
+db.getCollection('Cliente').insertOne(
+  {
+    'nome': 'Gabriel Diniz',
+    'cpf': '11111111111',
+	'endereco': 'Rua Benedito Valadares, 1000 - Centro',
+	'telefone': '037988888888'
+  });
+
+db.getCollection('Cliente').insertOne(
+  {
+    'nome': 'Bruno Diniz',
+    'cpf': '22222222222',
+	'endereco': 'Rua Manuel Batista, 200 - Santos Dumont',
+	'telefone': [
+				    '037988888888',
+                    '037966666666'
+    			]
+  });
+
+db.getCollection('Cliente').insertOne(
+  {
+    'nome': 'Miguel Diniz',
+    'cpf': '333333333333',
+	'endereco': 'Avenida Presidente Vargas, 1567 - São Francisco',
+	'telefone': '037955555555'
+  });
+
+
+-- ATV 03 --
+db.getCollection('Medico').insertMany([
+  {
+  'nome': 'Fernando Maciel',
+  'crm': '75689',
+  'ocupacao': 'Clínico Geral',
+  'salario': 15500
+  },
+  {
+  'nome': 'Anderson Tres',
+  'crm': '65893',
+  'ocupacao': 'Oftalmologista',
+  'salario': 20000
+  },
+  {
+  'nome': 'Isac Cardoso',
+  'crm': '68712',
+  'ocupacao': 'Neurologista',
+  'salario': 22555
+  },
+]);
+
+
+-- ATV 04 --
+db.getCollection('Consulta').insertMany([
+ {
+  'paciente': 'Gabriel Diniz',
+  'medico': 'Fernando Maciel',
+  'data': '01/05/2023',
+  'hora': '14:00',
+  'valor': 300
+  },
+  {
+  'paciente': 'Miguel Diniz',
+  'medico': 'Isac Cardoso',
+  'data': '04/03/2023',
+  'hora': '17:00',
+  'valor': 250,
+  'andar': 3
+  },
+  {
+  'paciente': 'Bruno Diniz',
+  'medico': 'Anderson Tres',
+  'data': '02/04/2023',
+  'hora': '08:00',
+  'valor': 350,
+  'sala': 505
+  },
+]);
+
+
+-- ATV 05 --
+db.getCollection('Consulta').updateOne({'paciente': 'Gabriel Diniz'}, {$set: {'hora': '10:30'}});
+
+
+-- ATV 06 --
+db.getCollection('Medico').updateMany({}, {$set: {'salario': 15000}});
+
+
+-- ATV 07 --
+db.getCollection('Consulta').updateOne({'paciente': 'Gabriel Diniz'}, {$set: {'valor': 270}});
+
+
+-- ATV 08 --
+db.getCollection('Medico').updateMany({'crm': {$in: ['65893', '68712']}}, {$set: {'salario': 12000}});
+
+
+-- ATV 09 -- 
+db.getCollection('Cliente').find({});
+
+
+-- ATV 10 --
+db.getCollection('Medico').find({'salario': {$gt: 13000}});
+
+
+-- ATV 11 --
+db.getCollection('Consulta').find({$or: [{'sala': {$gt: 500}, 'valor': {$lt: 330}}]});
+
+
+-- ATV 12 --
+db.getCollection('Consulta').updateOne({'_id': ObjectId('672d4305e2fe0494d766013f')}, {$set :{'valor': 400}});
+
+
+-- ATV 13 --
+db.getCollection('Consulta').deleteOne({'_id': ObjectId('672d4305e2fe0494d766013f')});
+
+
+-- ATV 14 --
+db.getCollection('Medico').deleteMany({'salario': {$lt: 13000}});
+
+
+-- ATV 15 --
+db.getCollection('Cliente').deleteMany({});
