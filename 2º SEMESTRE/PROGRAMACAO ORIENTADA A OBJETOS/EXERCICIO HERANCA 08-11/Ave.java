@@ -6,31 +6,22 @@ public class Ave extends Animal {
     // Construtor
     public Ave(String nome, int idade, String tipoAlimentacao, boolean migratoria){
         super(nome, idade, tipoAlimentacao);
-        this.migratoria = migratoria;
+        setMigratoria(migratoria);
 
     }
 
-    // Método Get
-    public boolean getMigratoria(){
+    // Método Get e Set
+    public boolean isMigratoria(){
         return this.migratoria;
     }
 
-    // Método privado que informa se a ave é migratória ou não
-    private String eMigratoria(){
-        String retorno = "";
-
-        if (getMigratoria()){
-            retorno = " > Essa ave é migratória!";
-        } else {
-            retorno = " > Essa ave não é migratória!";
-        }
-
-        return retorno;
+    public void setMigratoria(boolean migratoria) {
+        this.migratoria = migratoria;
     }
 
     // Método exibirInfo sobrescrito
     public String exibirInfo(){
-        return super.exibirInfo() + "\n" + eMigratoria();
+        return super.exibirInfo() + "\n" + (isMigratoria()?" > Ave migratória!":" > Ave não migratória!");
     }
 
     // Método exibirHabitat sobrescrito

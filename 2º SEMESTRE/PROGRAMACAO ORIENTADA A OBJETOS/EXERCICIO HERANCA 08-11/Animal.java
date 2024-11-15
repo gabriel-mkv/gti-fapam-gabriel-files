@@ -1,4 +1,4 @@
-public class Animal {
+public abstract class Animal {
 
     // Atributos
     private String nome;
@@ -42,13 +42,9 @@ public class Animal {
 
     // Método para exibir informações do animal
     public String exibirInfo() {
-        return " > Nome: " + getNome() + "\n > Idade: " + getIdade();
+        return " > Nome: " + getNome() + "\n > Idade: " + getIdade() + "\n > Tipo alimentação: " + getTipoAlimentacao();
     }
 
-    // Método que descreve o habitat geral do animal
-    public String exibirHabitat() {
-        return  "O habitat é o lar de um animal, um palco complexo onde a vida se desenrola. " +
-                "Ele é composto por fatores abióticos, como temperatura e água, e fatores bióticos," +
-                "como plantas e outros animais, que se interligam para criar um sistema de suporte de vida.";
-    }
+    // Método abstrato que será sobrescrito
+    public abstract String exibirHabitat();
 }
