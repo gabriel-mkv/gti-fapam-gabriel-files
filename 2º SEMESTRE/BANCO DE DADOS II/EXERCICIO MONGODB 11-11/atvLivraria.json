@@ -1,0 +1,171 @@
+use Livraria;
+
+db.createCollection("livro");
+
+db.createCollection("usuario");
+
+db.createCollection("carrinho");
+
+
+db.getCollection("livro").insertMany([
+	{
+	"titulo": "O Hobbit",
+	"autor": "J.R.R Tolkien",
+	"isbn": "9782739485725",
+	"preco": 36.99,
+	"estoque": 27,
+	"categoria": [ 
+			"Fantasia",
+			"Aventura",
+			"Clássico"
+		    ]
+	},
+	{
+	"titulo": "Dom Casmurro",
+	"autor": "Machado de Assis",
+	"isbn": "9783746285746",
+	"preco": 29.99,
+	"estoque": 90,
+	"categoria": [
+			"Romance",
+			"Realismo",
+			"Literatura"
+		    ]
+	},
+	{
+	"titulo": "O Pequeno Príncipe",
+	"autor": "Antoine de Saint-Exupéry",
+	"isbn": "9783746195678",
+	"preco": 24.78,
+	"estoque": 76,
+	"categoria": [
+			"Infantil",
+			"Clássico",
+			"Filosofia"
+		    ]
+	}]);
+
+
+db.getCollection("usuario").insertMany([
+	{
+	"nome": "Ana Silva",
+    	"email": "ana.silva@email.com",
+    	"endereco": "Rua dos Pinheiros, 123 - São Paulo, SP",
+    	"senha": "senha12",
+    	"favoritos": [
+			"6739ee2671204f8a8b96e813",
+			"6739ee2671204f8a8b96e814"
+		    ]
+	},
+	{
+		"nome": "João Santos",
+		"email": "joao.santos@email.com",
+		"endereco": "Avenida Brasil, 456 - Rio de Janeiro, RJ",
+		"senha": "senha456",
+		"favoritos": [
+			"6739ee2671204f8a8b96e815"
+			]
+	},
+	{
+		"nome": "Maria Oliveira",
+		"email": "maria.oliveira@email.com",
+		"endereco": "Rua da Liberdade, 789 - Belo Horizonte, MG",
+		"senha": "senha789",
+		"favoritos": [
+			"6739ee2671204f8a8b96e814",
+			"6739ee2671204f8a8b96e815"
+			]
+	}]);
+
+
+db.getCollection("carrinho").insertOne(
+	{
+		"usuario_id": "6739ee7d71204f8a8b96e816",
+		"itens": [
+			{
+				"livro_id": "6739ee2671204f8a8b96e813",
+				"qtd": 2
+			}
+		]
+	});
+
+db.getCollection("carrinho").insertOne(
+	{
+		"usuario_id": "6739ee7d71204f8a8b96e817",
+		"itens": [
+			{
+				"livro_id": "6739ee2671204f8a8b96e815",
+				"qtd": 1
+			}
+		]
+	});
+
+db.getCollection("carrinho").insertOne(
+	{
+		"usuario_id": "6739ee7d71204f8a8b96e818",
+		"itens": [
+			{
+				"livro_id": "6739ee2671204f8a8b96e815",
+				"qtd": 1
+			},
+			{
+				"livro_id": "6739ee2671204f8a8b96e814",
+				"qtd": 4
+			},
+			{
+				"livro_id": "6739ee2671204f8a8b96e813",
+				"qtd": 8
+			}
+		]
+	});
+
+
+db.getCollection("livro").find({});
+
+
+db.getCollection("usuario").find({"nome" : "Ana Silva"});
+
+
+db.getCollection("usuario").find({$and : [{"nome" : "Maria Oliveira"}, {"senha" : "senha789"}]});
+
+
+db.getCollection("livro").find({$or : [{"titulo" : "Dom Casmurro"}, {"preco" : {$lt : 25}}]});
+
+
+db.getCollection("carrinho").find({"itens.qtd" : {$gt : 5}});
+
+
+db.getCollection("livro").find({"preco" : {$gte : 29.99}});
+
+
+db.getCollection("carrinho").find({"itens.qtd" : {$lt : 3}});
+
+
+db.getCollection("livro").find({"estoque" : {$lte : 90}});
+
+
+db.getCollection("livro").find({"categoria" : {$in : ["Romance", "Aventura"]}});
+
+
+db.getCollection("carrinho").countDocuments({"itens.qtd" : {$gte : 2}});
+
+
+db.getCollection("usuario").updateOne({"nome" : "Ana Silva"}, {$set : {"senha" : "senha123"}});
+
+
+db.getCollection("usuario").updateOne({"_id": ObjectId("6739ee7d71204f8a8b96e817")}, {$set : {"endereco" : "Rua Meridiano, 456 - Santa Catarina, SC"}});
+
+
+db.getCollection("livro").updateOne({"titulo" : "O Hobbit", "estoque" : 27}, {$set : {"estoque" : 30}});
+
+
+db.getCollection("livro").updateOne({"titulo" : "O Pequeno Príncipe"}, {$set : {"estoque" : 70, "preco" : 23.99}});
+
+
+db.getCollection("usuario").replaceOne({"_id" : ObjectId("6739ee7d71204f8a8b96e818")}, {"Status" : "Substituído"});
+
+
+db.getCollection("livro").deleteOne({"titulo": "Dom Casmurro"});
+
+
+db.getCollection("carrinho").deleteMany({});
