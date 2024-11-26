@@ -21,7 +21,7 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword  
       MYSQL_DATABASE: mydatabase              
     volumes:
-      - mysql-data:/var/lib/mysql 
+      - /PHP:/mysql-data/var/lib/mysql 
     ports:
       - "3306:3306" 
   
@@ -37,5 +37,5 @@ services:
       - db
 
 volumes:
-  mysql-data: 
+    mysql-data: 
 
